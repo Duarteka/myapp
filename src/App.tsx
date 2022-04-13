@@ -6,10 +6,10 @@ import React, { Suspense } from "react";
 import * as THREE from "three";
 import { Vector3 } from "three";
 
-import { HeaderContent } from "./HeaderContent";
-import { Navigation } from "./Navigation";
-import Noodles from "./Noodles";
-import { ToggleColorMode } from "./ToggleColorMode";
+import { HeaderContent } from "./components/HeaderContent";
+import { Navigation } from "./components/Navigation";
+import Noodles from "./components/Noodles";
+import { ToggleColorMode } from "./helpers/ToggleColorMode";
 
 export default function App() {
   return (
@@ -17,7 +17,7 @@ export default function App() {
       <StyledEngineProvider>
         <ToggleColorMode>
           <CssBaseline />
-          <Navigation />
+
           <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 10], fov: 22 }}>
             <HeaderContent />
           </Canvas>

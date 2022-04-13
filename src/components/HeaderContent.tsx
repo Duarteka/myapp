@@ -4,7 +4,7 @@ import { Canvas, useThree } from "@react-three/fiber";
 import React, { Suspense, useEffect } from "react";
 import { css } from "styled-components";
 
-import { Bg, Rig } from "./App";
+import { Bg, Rig } from "../App";
 import Noodles from "./Noodles";
 
 const blinkcaret = css` {
@@ -96,17 +96,19 @@ function Typewriter(props: { words: string | any[] }) {
   });
 
   return (
-    <Text
-      position={[0, 0, -8]}
-      lineHeight={0.8}
-      material-toneMapped={false}
-      font="/Ki-Medium.ttf"
-      fontSize={width / 5}
-      textAlign="center"
-      anchorX="center"
-      anchorY="bottom"
-    >
-      {visibleCharacters}
-    </Text>
+    <>
+      <Text
+        position={[0, 0, -8]}
+        lineHeight={0.8}
+        material-toneMapped={false}
+        font="/Ki-Medium.ttf"
+        fontSize={width / 5}
+        textAlign="center"
+        anchorX="center"
+        anchorY="bottom"
+      >
+        {visibleCharacters}
+      </Text>
+    </>
   );
 }

@@ -14,7 +14,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import React, { useContext } from "react";
 
-import { ColorModeContext } from "./ToggleColorMode";
+import { ColorModeContext } from "../helpers/ToggleColorMode";
 
 const pages = ["Projects", "About", "Contact"];
 
@@ -106,7 +106,7 @@ export const Navigation = () => {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "#fff", display: "block" }}
               >
                 {page}
               </Button>
