@@ -2,16 +2,10 @@ import "./styles.css";
 
 import React from "react";
 import ReactDOM from "react-dom";
-import {
-  BrowserRouter as Router,
-  Link,
-  NavLink,
-  Route,
-  Routes,
-} from "react-router-dom";
 
 import App from "./App";
 import Burger from "./components/Burger";
+import Overlay from "./components/Overlay";
 import * as S from "./components/styles";
 import { navLinks } from "./helpers/navLinks";
 
@@ -32,6 +26,7 @@ const Navbar = (props: Props) => {
       <S.Nav></S.Nav>
       <Burger />
       {props.children}
+      <Overlay />
     </div>
   );
 };
@@ -39,6 +34,7 @@ const Navbar = (props: Props) => {
 ReactDOM.render(
   <>
     <App />
+
     <Navbar open={false} />
   </>,
 

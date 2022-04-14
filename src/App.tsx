@@ -1,14 +1,12 @@
 import { CssBaseline } from "@mui/material";
 import { StyledEngineProvider } from "@mui/material/styles";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { Depth, LayerMaterial, Noise } from "lamina";
-import React, { Suspense } from "react";
+import React from "react";
 import * as THREE from "three";
 import { Vector3 } from "three";
 
 import { HeaderContent } from "./components/HeaderContent";
-import { Navigation } from "./components/Navigation";
-import Noodles from "./components/Noodles";
 import { ToggleColorMode } from "./helpers/ToggleColorMode";
 
 export default function App() {
@@ -17,7 +15,6 @@ export default function App() {
       <StyledEngineProvider>
         <ToggleColorMode>
           <CssBaseline />
-
           <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 10], fov: 22 }}>
             <HeaderContent />
           </Canvas>

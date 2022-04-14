@@ -3,6 +3,7 @@ import { Text } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
 import React, { Suspense, useEffect } from "react";
 import { css } from "styled-components";
+import { Vector3 } from "three";
 
 import { Bg, Rig } from "../App";
 import Noodles from "./Noodles";
@@ -32,8 +33,13 @@ export const HeaderContent = () => {
         <Noodles />
         <Rig />
       </Suspense>
+
       <Typewriter
-        words={["Frontend Developer", "UX Designer", "Graphic Designer"]}
+        words={[
+          "FRONTEND\n\t\t\tDEVELOPER",
+          "UX DESIGNER",
+          "GRAPHIC\n\t\tDESIGNER",
+        ]}
       />
     </>
   );
@@ -60,7 +66,7 @@ function Typewriter(props: { words: string | any[] }) {
 
   const checkLength = () => {
     if (isIncreasing && visibleCharacters.length >= word.length) {
-      setDelay(15);
+      setDelay(10);
       setIsIncreasing(false);
     } else if (!isIncreasing && visibleCharacters.length === 0) {
       setIsIncreasing(true);
@@ -101,11 +107,16 @@ function Typewriter(props: { words: string | any[] }) {
         position={[0, 0, -8]}
         lineHeight={0.8}
         material-toneMapped={false}
-        font="/Ki-Medium.ttf"
-        fontSize={width / 5}
-        textAlign="center"
+        font="Lato"
+        fillOpacity={55}
+        fontSize={width / 7}
+        color={"#f7f7f7"}
+        scale={[1.5, 1.5, 1.5]}
+        textAlign="left"
         anchorX="center"
-        anchorY="bottom"
+        anchorY="middle"
+        maxWidth={80}
+        letterSpacing={-0.1}
       >
         {visibleCharacters}
       </Text>

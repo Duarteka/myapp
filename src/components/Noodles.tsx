@@ -85,7 +85,7 @@ function Noodle() {
 export default function Noodles(props: any): JSX.Element {
   return (
     <>
-      {Array.from({ length: 0 }, (_, i) => (
+      {Array.from({ length: 15 }, (_, i) => (
         <Noodle key={i} />
       ))}
     </>
