@@ -1,12 +1,11 @@
-import { Box, Typography } from "@mui/material";
-import { Text } from "@react-three/drei";
-import { Canvas, useThree } from "@react-three/fiber";
+import { Scroll, ScrollControls, Text } from "@react-three/drei";
+import { useThree } from "@react-three/fiber";
 import React, { Suspense, useEffect } from "react";
 import { css } from "styled-components";
-import { Vector3 } from "three";
 
 import { Bg, Rig } from "../App";
 import Noodles from "./Noodles";
+import Overlay from "./Overlay";
 
 const blinkcaret = css` {
     from {
@@ -16,14 +15,14 @@ const blinkcaret = css` {
     opacity: 1;
   }`;
 
-const typewriter = {
-  display: "inline-block",
-  borderRight: "5px solid orange",
-  fontSize: "5rem",
-  animation: `${blinkcaret} 0.75s step-end infinite`,
-  height: "1em",
-  marginTop: "0",
-};
+// const typewriter = {
+//   display: "inline-block",
+//   borderRight: "5px solid orange",
+//   fontSize: "5rem",
+//   animation: `${blinkcaret} 0.75s step-end infinite`,
+//   height: "1em",
+//   marginTop: "0",
+// };
 
 export const HeaderContent = () => {
   return (
@@ -33,14 +32,29 @@ export const HeaderContent = () => {
         <Noodles />
         <Rig />
       </Suspense>
-
+      <Text
+        maxWidth={50}
+        position={[0, 0.7, 3]}
+        anchorX="left"
+        anchorY="middle"
+      >
+        I&apos;M A
+      </Text>
       <Typewriter
         words={[
           "FRONTEND\n\t\t\tDEVELOPER",
-          "UX DESIGNER",
+          "UX\n\t\t\tDESIGNER",
           "GRAPHIC\n\t\tDESIGNER",
         ]}
       />
+      <Text
+        color={"#FDF41B"}
+        position={[0, -0.6, 2]}
+        anchorX="left"
+        anchorY="bottom-baseline"
+      >
+        BASED IN MADRID
+      </Text>
     </>
   );
 };
@@ -104,17 +118,17 @@ function Typewriter(props: { words: string | any[] }) {
   return (
     <>
       <Text
-        position={[0, 0, -8]}
+        position={[0, 0.5, -9]}
         lineHeight={0.8}
         material-toneMapped={false}
         font="Lato"
         fillOpacity={55}
-        fontSize={width / 7}
+        fontSize={width / 10}
         color={"#f7f7f7"}
-        scale={[1.5, 1.5, 1.5]}
+        scale={[1, 1, 1]}
         textAlign="left"
         anchorX="center"
-        anchorY="middle"
+        anchorY="top-baseline"
         maxWidth={80}
         letterSpacing={-0.1}
       >

@@ -1,10 +1,8 @@
-import { flexbox } from "@mui/system";
-import { Center } from "@react-three/drei";
-import React from "react";
+import { BottomNavigation } from "@mui/material";
+import React, { Suspense } from "react";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
 
 const IamH2: any = {
-  position: "fixed",
   display: "flex",
   minWidth: "100%",
   flexDirection: "column",
@@ -15,15 +13,12 @@ const IamH2: any = {
 const Container: any = {
   display: "flex",
   flexDirection: "column",
-
   alignContent: "flex-end",
   justifyContent: "space-between",
-
   alignItems: "center",
-
   width: "100%",
   minHeight: "16rem",
-  marginTop: "30rem",
+  //transform: "translate(0, 29rem)",
 };
 const Navcontainer: any = {
   display: "flex",
@@ -43,19 +38,19 @@ const SpanStyle: any = {
   height: "6rem",
   border: " 0.7px solid #F7F7F7",
 };
-const SpanStyleName: any = {
-  color: "#FDF41B",
-  fontSize: 27,
-};
+// const SpanStyleName: any = {
+//   color: "#FDF41B",
+//   fontSize: 27,
+// };
 
-const Hello: any = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  margin: 0,
-  color: " #F7F7F7",
-  // transform: "translate(50px,100px)",
-};
+// const Hello: any = {
+//   display: "flex",
+//   flexDirection: "column",
+//   alignItems: "center",
+//   margin: 0,
+//   color: " #F7F7F7",
+//   // transform: "translate(50px,100px)",
+// };
 
 export const socialMidia: ListSocialMidia[] = [
   {
@@ -82,8 +77,21 @@ export interface ListSocialMidia {
 }
 const Overlay = () => {
   return (
-    <>
-      {/* <div style={Hello}>
+    <Suspense fallback={null}>
+      <div
+        style={{
+          width: "300px",
+          height: "600px",
+          backgroundColor: "blue",
+        }}
+      ></div>
+    </Suspense>
+  );
+};
+
+export default Overlay;
+{
+  /* <div style={Hello}>
         <p
           style={{
             lineHeight: "-20rem",
@@ -95,9 +103,14 @@ const Overlay = () => {
         >
           HELLO, {""} MY NAME IS <span style={SpanStyleName}>KAREN DUARTE</span>
         </p>
-      </div> */}
-      <h2 style={IamH2}>I&apos;m a</h2>
-      <div style={Container}>
+      </div> */
+}
+{
+  /* <h2 style={IamH2}>I&apos;m a</h2> */
+}
+
+{
+  /* <div style={Container}>
         <div style={{ color: " #F7F7F7 " }}>
           <p>BASED ON MADRID</p>
         </div>
@@ -113,9 +126,5 @@ const Overlay = () => {
             ))}
           </Router>
         </div>
-      </div>
-    </>
-  );
-};
-
-export default Overlay;
+      </div> */
+}

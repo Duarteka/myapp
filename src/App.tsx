@@ -1,12 +1,16 @@
 import { CssBaseline } from "@mui/material";
 import { StyledEngineProvider } from "@mui/material/styles";
+import { Scroll, ScrollControls } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Depth, LayerMaterial, Noise } from "lamina";
 import React from "react";
 import * as THREE from "three";
 import { Vector3 } from "three";
 
+import Burger from "./components/Burger";
 import { HeaderContent } from "./components/HeaderContent";
+import { Proyects } from "./components/ProyectsCards";
+import * as S from "./components/styles";
 import { ToggleColorMode } from "./helpers/ToggleColorMode";
 
 export default function App() {
@@ -15,14 +19,41 @@ export default function App() {
       <StyledEngineProvider>
         <ToggleColorMode>
           <CssBaseline />
-          <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 10], fov: 22 }}>
-            <HeaderContent />
+          <Navbar open={false} />
+          <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 22], fov: 20 }}>
+            <ScrollControls pages={5} distance={1.5} damping={4}>
+              <Scroll>
+                <HeaderContent />
+              </Scroll>
+            </ScrollControls>
           </Canvas>
+          <Proyects />
         </ToggleColorMode>
       </StyledEngineProvider>
     </>
   );
 }
+
+type navbarProps = {
+  open: boolean;
+  children?: ChildNode;
+};
+const Navbar = (props: navbarProps) => {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        zIndex: 100,
+      }}
+    >
+      <S.Nav></S.Nav>
+      <Burger />
+      {props.children}
+    </div>
+  );
+};
 
 export function Rig({ v = new THREE.Vector3() }) {
   return useFrame(
