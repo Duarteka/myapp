@@ -21,12 +21,13 @@ export default function App() {
           <CssBaseline />
           <Navbar open={false} />
           <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 22], fov: 20 }}>
-            <ScrollControls pages={5} distance={1.5} damping={4}>
+            <ScrollControls pages={10} distance={1.5} damping={4}>
               <Scroll>
                 <HeaderContent />
               </Scroll>
             </ScrollControls>
           </Canvas>
+
           <Proyects />
         </ToggleColorMode>
       </StyledEngineProvider>
@@ -77,7 +78,7 @@ export function Bg() {
       <boxGeometry args={[1, 1, 1]} />
       <LayerMaterial side={THREE.BackSide}>
         <Depth
-          colorB="red"
+          colorB="yellow"
           colorA="skyblue"
           alpha={1}
           mode="normal"
@@ -89,8 +90,8 @@ export function Bg() {
           mapping="local"
           type="white"
           scale={1000}
-          colorA="white"
-          colorB="black"
+          colorA="black"
+          colorB="white"
           mode="subtract"
           alpha={0.2}
         />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
 
 import { navLinks } from "../helpers/navLinks";
@@ -9,10 +9,26 @@ type Props = {
 };
 
 function RightNav(props: Props) {
+  const [navLogo, setNavLogo] = useState("KAREN DUARTE");
+
+  const listenerScrollEvent = () => {
+    window.scrollY > 10 ? setNavLogo("KD") : setNavLogo("KAREN DUARTE");
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenerScrollEvent);
+    return () => {
+      window.removeEventListener("scroll", listenerScrollEvent);
+    };
+  }, []);
+
   return (
     <Router>
       <S.Ul open={props.open}>
-        <S.LogoUl>KAREN DUARTE</S.LogoUl>
+        <S.Logo>
+          <S.LogoUl>{navLogo}</S.LogoUl>
+        </S.Logo>
+
         {navLinks.map((item, index) => (
           <NavLink
             style={({ isActive }) => (isActive ? {} : {})}

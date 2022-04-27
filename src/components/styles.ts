@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 interface INav {
   open: boolean;
@@ -56,7 +56,6 @@ export const Nav = styled.nav`
 `;
 
 export const Ul = styled.ul<INav>`
-  font-family: "Zilla Slab", sans-serif;
   list-style: none;
   display: flex;
   align-items: center;
@@ -122,8 +121,7 @@ export const Li = styled.li`
 `;
 
 export const Logo = styled.p`
-  margin: 30px 150px 20px 7%;
-  width: 160px;
+  width: 100%;
   height: 70px;
   object-fit: contain;
 
@@ -135,6 +133,7 @@ export const Logo = styled.p`
 export const LogoUl = styled.p`
   margin: 30px 600px 20px 5%;
   color: #fdf41b;
+  width: 100%;
   letter-spacing: -0.09em;
   @media (max-width: 768px) {
     display: flex;
@@ -142,20 +141,4 @@ export const LogoUl = styled.p`
     height: 70px;
     object-fit: contain;
   }
-`;
-
-export const Icon = styled.div`
-  width: 100vw;
-  height: calc(100vh - 112px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Image = styled.img`
-  width: 150px;
-  height: 150px;
-  pointer-events: none;
-  object-fit: contain;
-  animation: Spin infinite 20s linear;
 `;

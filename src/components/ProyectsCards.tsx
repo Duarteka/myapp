@@ -1,75 +1,67 @@
 import "../styles.css";
 
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import React from "react";
-import { animated, useSpring } from "react-spring";
+import React, { useRef } from "react";
 
-const calcXY = (x: number, y: number) => [
-  -(y - window.innerHeight / 2) / 15,
-  (x - window.innerWidth / 2) / 15,
-  1.0,
-];
-
-const perspective = (x: any, y: any, s: any) =>
-  `perspective(500px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+import GridProjects from "./GridProjects";
+import Hello from "./Hello";
 
 const ProyectsCards = () => {
-  const [props, set] = useSpring(() => ({
-    xys: [0, 0, 0.5],
-    config: { mass: 5, tension: 200, friction: 100 },
-  }));
   return (
     <div
       style={{
         display: "flex",
-        justifyContent: "center",
+        alignContent: "center",
         alignItems: "center",
-        flexDirection: "row",
+        flexDirection: "column",
+        width: "100%",
       }}
     >
-      <animated.div
-        className="card"
-        onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calcXY(x, y) })}
-        onMouseLeave={() => set({ xys: [0, 0, 1] })}
-        style={{ transform: props.xys.to(perspective) }}
-      />
+      <Hello />
+      <GridProjects />
     </div>
   );
 };
 
 export const Proyects = () => {
+  const ref = useRef();
+
   return (
     <>
-      <Parallax pages={2} style={{ top: "0", left: "0" }}>
+      <Parallax
+        config={{ frequency: 1 }}
+        ref={ref}
+        pages={3}
+        style={{ top: "0", left: "0" }}
+      >
         <ParallaxLayer
           offset={1}
-          speed={2.5}
+          speed={0.9}
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             alignSelf: "center",
           }}
-        >
-          <p>Scroll down</p>
-        </ParallaxLayer>
+        ></ParallaxLayer>
 
         <ParallaxLayer
           offset={1}
           speed={2}
           style={{
-            backgroundColor: "#1F1C3A",
             borderTopRightRadius: 20,
             borderTopLeftRadius: 20,
-            maxWidth: "99%",
+            maxWidth: "100%",
+            height: "200%",
             display: "flex",
-            marginLeft: "0.5%",
+            backgroundColor: "#1F1C3A",
+
             justifyContent: "center",
           }}
         />
 
         <ParallaxLayer
-          offset={1}
+          offset={2}
           speed={0.5}
           style={{
             display: "flex",

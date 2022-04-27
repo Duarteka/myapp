@@ -2,6 +2,10 @@
     "compilerOptions": {
         "strict": true, 
         "jsx": "react", 
-        "allowSyntheticDefaultImports": true
-    }
+        "allowSyntheticDefaultImports": true, 
+
+    },
+    "include": [
+        "./typings-custom/**/*.ts"
+    ]
 }

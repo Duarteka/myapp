@@ -61,11 +61,11 @@ function Noodle() {
   });
   const [speed] = useState(() => 0.1 + Math.random() / 10);
   const position = useMemo(() => {
-    const z = Math.random() * -30;
+    const z = Math.random() * -35;
     const bounds = viewport.getCurrentViewport(camera, new Vector3(0, 0, z));
     return [
       THREE.MathUtils.randFloatSpread(bounds.width),
-      THREE.MathUtils.randFloatSpread(bounds.height * 0.75),
+      THREE.MathUtils.randFloatSpread(bounds.height * 0.45),
       z,
     ];
   }, [viewport]);

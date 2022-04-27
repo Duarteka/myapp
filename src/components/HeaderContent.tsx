@@ -1,28 +1,9 @@
-import { Scroll, ScrollControls, Text } from "@react-three/drei";
+import { Text } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import React, { Suspense, useEffect } from "react";
-import { css } from "styled-components";
 
 import { Bg, Rig } from "../App";
 import Noodles from "./Noodles";
-import Overlay from "./Overlay";
-
-const blinkcaret = css` {
-    from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }`;
-
-// const typewriter = {
-//   display: "inline-block",
-//   borderRight: "5px solid orange",
-//   fontSize: "5rem",
-//   animation: `${blinkcaret} 0.75s step-end infinite`,
-//   height: "1em",
-//   marginTop: "0",
-// };
 
 export const HeaderContent = () => {
   return (
@@ -37,6 +18,8 @@ export const HeaderContent = () => {
         position={[0, 0.7, 3]}
         anchorX="left"
         anchorY="middle"
+        color={"#f7f7f7"}
+        material-toneMapped={false}
       >
         I&apos;M A
       </Text>
@@ -49,9 +32,13 @@ export const HeaderContent = () => {
       />
       <Text
         color={"#FDF41B"}
-        position={[0, -0.6, 2]}
-        anchorX="left"
+        position={[0, -0.5, 2]}
+        anchorX="center"
         anchorY="bottom-baseline"
+        font="Lato"
+        letterSpacing={-0.1}
+        lineHeight={0.8}
+        material-toneMapped={false}
       >
         BASED IN MADRID
       </Text>
@@ -122,7 +109,7 @@ function Typewriter(props: { words: string | any[] }) {
         lineHeight={0.8}
         material-toneMapped={false}
         font="Lato"
-        fillOpacity={55}
+        fillOpacity={5}
         fontSize={width / 10}
         color={"#f7f7f7"}
         scale={[1, 1, 1]}
